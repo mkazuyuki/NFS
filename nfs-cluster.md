@@ -11,7 +11,7 @@
 
 ## EC settings
 
-0. Create a cluster
+0. Create a cluster with File Server Agent
 1. Add a failover group for NFS service
 2. Add a (mirror) disk resource
 3. Add a execute resource
