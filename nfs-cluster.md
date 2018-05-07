@@ -13,21 +13,22 @@
 
 0. Create a cluster with File Server Agent
 1. Add a failover group for NFS service
-2. Add a (mirror) disk resource
+2. Add a disk, md or hd resource
 3. Add a execute resource
-3.1. edit start.sh / stop.sh as below
 
-	- start.sh
+	1. edit start.sh / stop.sh as below
 
-		service nfs start
+		- start.sh
 
-	- stop.sh
+				systemctl start nfs
 
-		service nfs stop
+		- stop.sh
+
+				systemctl stop nfs
 4. Add FIP resource 
 5. Configure the starting order of the resources as below
 
-	1. disk resource (or md resource)
+	1. disk, md or hd resource
 	2. exec resource which is defined as above.
 	3. FIP resource
 
