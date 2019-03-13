@@ -3,6 +3,10 @@
 ## OS settings
 
 1. Install NFS server
+
+		# Example for CentOS 7 and NFS ver.4
+		yum -y install nfs-utils
+
 2. Configure it to manual startup
 
 		systemctl disable nfs
