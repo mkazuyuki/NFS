@@ -1,39 +1,45 @@
 # EXPRESSCLUSTER X Quick Start Guide for NFS server on Linux
 
+Practical example for NFS ver.4 cluster on CentOS 7
+
+----
+
 ## OS settings
 
 1. Install NFS server
 
-		# Example for CentOS 7 and NFS ver.4
-		yum -y install nfs-utils
+		# yum -y install nfs-utils
 
 2. Configure it to manual startup
 
-		systemctl disable nfs
+		# systemctl disable nfs
 
-3. Modify /etc/exports for NFS server to export the mount point of (mirror) disk resource.
+3. Modify */etc/exports* for NFS server to export the mount point of (mirror) disk resource
 
 ## EC settings
 
-0. Create a cluster with File Server Agent
-1. Add a failover group for NFS service
-2. Add a disk, md or hd resource
-3. Add a execute resource
+1. Create a cluster with File Server Agent
+2. Add a failover group for NFS service
+3. Add a disk, md or hd resource
+4. Add a execute resource
 
-	1. edit start.sh / stop.sh as below
+	edit start.sh / stop.sh as following
 
-		- start.sh
+	- start.sh
 
-				systemctl start nfs
+			#!/bin/sh
+			systemctl start nfs
 
-		- stop.sh
+	- stop.sh
 
-				systemctl stop nfs
-4. Add FIP resource 
-5. Configure the starting order of the resources as below
+			#!/bin/sh
+			systemctl stop nfs
+
+5. Add FIP resource 
+6. Configure the resource dependency as following
 
 	1. disk, md or hd resource
 	2. exec resource which is defined as above.
 	3. FIP resource
 
-6. Add NFS Monitor resource
+7. Add NFS Monitor resource
